@@ -1,0 +1,152 @@
+### Test Register
+POST http://localhost:3000/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name":"sandi apriyansyah",
+    "email":"sandi02@gmail.com",
+    "password":"sandi123",
+    "password_confirmation":"sandi123"
+}
+
+
+### Test Login
+POST http://localhost:3000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email":"sandi02@gmail.com",
+    "password":"sandi123"
+}
+
+
+### Test Token JWT
+GET http://localhost:3000/api/v1/auth/whoami
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjk3ODk4Mjk1fQ.h2rRCQwzBMETgn4V0J_4WXCB4a2RNi-2oemvm1RA6qY
+
+
+
+
+### 1. Test Api Users
+### create data users (POST)
+POST http://localhost:3000/api/v1/users
+Content-Type: application/json
+
+{
+  "name": "Siti Wulandari",
+  "email": "sitiwulandari@gmail.com",
+  "password": "sitiw020102",
+  "profile": {
+    "identity_type": "KTP",
+    "identity_number": "187115526637723",
+    "address": "Jln.jambu Gg.mata air 3 No.2 Jambi"
+  }
+}
+
+### get all users
+GET http://localhost:3000/api/v1/users
+
+### get detail users by: id
+GET http://localhost:3000/api/v1/users/2
+
+
+### get data users with pagination
+GET http://localhost:3000/api/v1/users?limit=2&page=1
+
+### Update data users by: id
+PUT http://localhost:3000/api/v1/users/2
+Content-Type: application/json
+
+{
+  "name": "usertest2",
+  "email": "usertest2@gmail.com",
+  "password": "user123"
+}
+
+### delete data users by: id
+DELETE http://localhost:3000/api/v1/users/1
+
+### 2. Test Api Accounts
+### create data accounts (POST)
+POST http://localhost:3000/api/v1/accounts
+Content-Type: application/json
+
+{
+    "user_id": 5,
+    "bank_name": "Bank BCA",
+    "bank_account_number": "71882773",
+    "balance": 10000000
+}
+
+### get all accounts
+GET http://localhost:3000/api/v1/accounts
+
+### get detail accounts by: id
+GET http://localhost:3000/api/v1/accounts/2
+
+
+### get data accounts with pagination
+GET http://localhost:3000/api/v1/accounts?limit=2&page=1
+
+### update data accounts
+PUT http://localhost:3000/api/v1/accounts/5
+Content-Type: application/json
+
+{
+    "user_id": 5,
+    "bank_name": "Bank BRI",
+    "bank_account_number": "627726627",
+    "balance": 5350000
+}
+
+### delete accounts by: id
+DELETE http://localhost:3000/api/v1/accounts/1
+
+
+### 3. Transactions
+
+### Create Data Transactions
+POST http://localhost:3000/api/v1/transactions
+Content-Type: application/json
+
+{
+  "source_account_id": 3,
+  "destination_account_id": 2,
+  "amount": 490000
+}
+
+### get data all transactions
+GET http://localhost:3000/api/v1/transactions
+
+### get data by paginations
+GET http://localhost:3000/api/v1/transactions?limit=2&page=1
+
+### get detail data transactions by: id
+GET http://localhost:3000/api/v1/transactions/2
+
+### 4. Test Api Profiles
+### 1. create data profiles (POST)
+POST http://localhost:3000/api/v1/profiles
+Content-Type: application/json
+
+{
+  "user_id":4,
+  "identity_type": "KTP",
+  "identity_number": "1871198177188",
+  "address": "Jln.marga Gg.mushola 3 No.2 Bandar Lampung"
+}
+
+### 2. update data profiles
+PUT http://localhost:3000/api/v1/profiles/3
+Content-Type: application/json
+
+{
+  "user_id":3,
+  "identity_type": "KTP",
+  "identity_number": "187115526637723",
+  "address": "Jln.coklat Gg.pemancar 3 No.2 Bengkulu"
+}
+
+### 3. detail data profiles
+GET http://localhost:3000/api/v1/profiles/4
+
