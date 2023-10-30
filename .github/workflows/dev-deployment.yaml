@@ -23,7 +23,7 @@ jobs:
 
 
       - name: Install Packages
-        run: npm Install
+        run: npm install
 
 
       - name: Install Railway CLI
