@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const { PORT = 3000 } = process.env;
-const endpointv1 = require('./routes/endpointV1');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yaml');
@@ -26,8 +25,15 @@ app.use(express.json());
 
 // import authRouter
 const authRouter = require('./routes/auth.routes');
-app.use('/api/v1/auth', authRouter);
-app.use("/api/v1", endpointv1);
+app.use('/api/v1/', authRouter);
+app.get('/', (req, res) => {
+  return res.json({
+    status: true,
+    message: 'hello world',
+    error: null,
+    data: null
+  })
+})
 
 // 404 error handling
 app.use((req, res, next) => {
