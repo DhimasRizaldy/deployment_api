@@ -1,6 +1,6 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
-const { getPagination } = require("../../helpers/pagination");
+const { getPagination } = require("../helpers/pagination");
 
 module.exports = {
   // create new transactions

@@ -2,8 +2,11 @@ const express = require("express");
 const router = express.Router();
 const { register, login, whoami } = require('../controllers/auth.controllers');
 const { restrict } = require('../middlewares/auth.middlewares');
+
 // Import Users
 const { createUsers, getAllUsers, getDetailUsers, deleteUsers, updateUsers } = require("../handler/v1/users");
+// Import Profiles
+const { createProfiles, getDetailProfiles, updateProfiles } = require("../handler/v1/profiles");
 // Import Accounts
 const { createAccounts, getAllAccounts, getDetailAccounts, deleteAccounts, updateAccounts } = require("../handler/v1/accounts");
 // Import Transactions
@@ -19,9 +22,9 @@ router.get("/", (req, res) => {
 });
 
 // Routes Url Register & Login
-router.post('/register', register);
-router.post('/login', login);
-router.get('/whoami', restrict, whoami);
+router.post('/auth/register', register);
+router.post('/auth/login', login);
+router.get('/auth/whoami', restrict, whoami);
 
 // router url users
 router.post("/users", createUsers);
@@ -29,6 +32,12 @@ router.get("/users", getAllUsers);
 router.get("/users/:id", getDetailUsers);
 router.put("/users/:id", updateUsers);
 router.delete("/users/:id", deleteUsers);
+
+// router url profiles
+router.post("/profiles", createProfiles);
+router.get("/profiles/:id", getDetailProfiles);
+router.put("/profiles/:id", updateProfiles);
+
 
 // router url accounts
 router.post("/accounts", createAccounts);
@@ -41,6 +50,7 @@ router.delete("/accounts/:id", deleteAccounts);
 router.post("/transactions", createTransactions);
 router.get("/transactions", getAllTransactions);
 router.get("/transactions/:id", getDetailTransactions);
+
 
 // exports router
 module.exports = router;
