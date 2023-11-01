@@ -43,9 +43,9 @@ info:
     email: dtekchannel02@gmail.com
   version: 1.0.11
 servers:
-  - url: http://localhost:3000/api/v1
-  - url: https://test.bank_system.com/api/v1
-  - url: https://bank_system.com/api/v1
+  - url: https://deploymentapi-develop.up.railway.app/api/v1
+  - url: https://deploymentapi-develop.up.railway.app/api/v1
+  - url: https://deploymentapi-develop.up.railway.app/api/v1
 tags:
   - name: Auth
     description: Operations related to auth
