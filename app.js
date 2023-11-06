@@ -43,6 +43,7 @@ app.use(express.json());
 const authRouter = require('./routes/auth.routes');
 
 app.use('/api/v1/', authRouter);
+
 app.get('/', (req, res) => {
   console.log('name');
   return res.json({
