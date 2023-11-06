@@ -150,3 +150,7 @@ Content-Type: application/json
 ### 3. detail data profiles
 GET http://localhost:3000/api/v1/profiles/4
 
+
+
+### get main
+GET http://localhost:3000/
